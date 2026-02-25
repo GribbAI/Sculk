@@ -1,0 +1,21 @@
+{
+  "sculk.ui.title": "Sculk Tracker — Выбор игроков",
+  "sculk.ui.search": "Поиск",
+  "sculk.ui.prev": "Назад",
+  "sculk.ui.next": "Вперёд",
+  "sculk.ui.mode": "Режим: %s",
+  "sculk.ui.track_all": "Отслеживать всех",
+  "sculk.ui.untrack_all": "Снять отметки",
+  "sculk.ui.autotrack": "Автотрек: %s",
+  "sculk.ui.done": "Готово",
+  "sculk.ui.hint": "Ищи и кликай, чтобы переключить отслеживание. Кнопки — для быстрых действий.",
+  "sculk.msg.toggle": "Sculk tracker: %s",
+  "sculk.on": "ВКЛ",
+  "sculk.off": "ВЫКЛ",
+  "key.sculk.toggle": "Переключить Sculk",
+  "key.sculk.open_menu": "Открыть меню Sculk",
+  "category.sculk": "Sculk Tracker",
+  "sculk.mode.all": "Все",
+  "sculk.mode.tracked_only": "Только отмеченные",
+  "sculk.mode.nearest": "Ближайшие"
+}

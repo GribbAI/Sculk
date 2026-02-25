@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "id": "sculkmodtracker",
+  "version": "${version}",
+  "name": "Sculk",
+  "description": "Tracks players on servers",
+  "authors": [
+    "grib_i"
+  ],
+  "contact": {
+  "homepage": "https://t.me/cgrib_i",
+  "sources": "",
+  "issues": ""
+  },
+  "license": "GPL-3.0-only",
+  "icon": "assets/sculkmodtracker/icon.png",
+  "environment": "*",
+
+  "entrypoints": {
+    "main": [
+      "com.grib.Sculk"
+    ],
+    "client": [
+      "com.grib.client.SculkClient"
+    ]
+  },
+
+  "mixins": [
+    "sculkmodtracker.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.18.1",
+    "minecraft": ">=1.21.10 <1.22",
+    "java": ">=21",
+    "fabric-api": "*"
+  }
+}
