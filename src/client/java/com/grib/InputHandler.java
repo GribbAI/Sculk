@@ -7,6 +7,9 @@ public class InputHandler {
     public static void handleKeys(MinecraftClient client) {
         if (Keybinds.TOGGLE.wasPressed()) {
             Config.enabled = !Config.enabled;
+            Config.profile().enabled = Config.enabled;
+            Config.save();
+
             if (client.player != null) {
                 Text state = Text.translatable(Config.enabled ? "sculk.on" : "sculk.off");
                 client.player.sendMessage(Text.translatable("sculk.msg.toggle", state), true);

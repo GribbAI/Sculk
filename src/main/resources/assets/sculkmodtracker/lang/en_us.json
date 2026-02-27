@@ -17,5 +17,13 @@
   "category.sculk": "Sculk Tracker",
   "sculk.mode.all": "All",
   "sculk.mode.tracked_only": "Tracked Only",
-  "sculk.mode.nearest": "Nearest"
+  "sculk.mode.nearest": "Nearest",
+  "sculk.hud.legend": "Sculk Tracker (K toggle, P menu)",
+  "sculk.ui.opt.boxes": "Boxes: %s",
+  "sculk.ui.opt.lines": "Lines: %s",
+  "sculk.ui.opt.names": "Names: %s",
+  "sculk.ui.opt.distance": "Distance: %s",
+  "sculk.ui.opt.hp": "HP: %s",
+  "sculk.ui.opt.pulse": "Pulse: %s",
+  "sculk.ui.opt.minimap": "Minimap: %s"
 }
