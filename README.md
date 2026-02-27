@@ -38,7 +38,7 @@ Releases are available via GitHub Releases or Modrinth.
 |------------|---------|
 | Minecraft  | 1.21.10 |
 | Loader     | Fabric  |
-| Mod Version| 1.6.6   |
+| Mod Version| 1.7.3   |
 | Environment| Client  |
 
 
