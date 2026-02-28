@@ -17,13 +17,34 @@ public class Tracker {
         if (!Config.autoTrackNearest) return;
         MinecraftClient mc = MinecraftClient.getInstance();
         if (mc.player == null || mc.world == null) return;
-        Vec3d cam = mc.gameRenderer.getCamera().getPos();
+
+        var camera = mc.gameRenderer.getCamera();
+        Vec3d cam = null;
+        try {
+            cam = camera.getCameraPos();
+        } catch (NoSuchMethodError ignored) { }
+        if (cam == null) {
+            if (camera.getFocusedEntity() != null) {
+                var focused = camera.getFocusedEntity();
+                cam = new Vec3d(focused.getX(), focused.getY(), focused.getZ());
+            } else {
+                cam = new Vec3d(mc.player.getX(), mc.player.getY(), mc.player.getZ());
+            }
+        }
+
+        final double camX = cam.x;
+        final double camY = cam.y;
+        final double camZ = cam.z;
+
         List<PlayerEntity> list = mc.world.getPlayers().stream()
                 .filter(p -> p != mc.player && !p.isSpectator())
-                .sorted((a,b) -> Double.compare(Utils.distanceSq(cam.x, cam.y, cam.z, a.getX(), a.getY(), a.getZ()),
-                                                   Utils.distanceSq(cam.x, cam.y, cam.z, b.getX(), b.getY(), b.getZ())))
+                .sorted((a, b) -> Double.compare(
+                        Utils.distanceSq(camX, camY, camZ, a.getX(), a.getY(), a.getZ()),
+                        Utils.distanceSq(camX, camY, camZ, b.getX(), b.getY(), b.getZ())
+                ))
                 .limit(Config.nearestCount)
                 .collect(Collectors.toList());
+
         synchronized (Config.tracked) {
             Config.tracked.clear();
             for (PlayerEntity p : list) Config.tracked.add(p.getUuidAsString());

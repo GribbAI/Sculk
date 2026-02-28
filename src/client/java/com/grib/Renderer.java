@@ -42,8 +42,26 @@ public class Renderer {
                 int cx = sw / 2;
                 int cy = sh / 2;
 
-                Vec3d cam = mc.gameRenderer.getCamera().getPos();
-                double camX = cam.x, camY = cam.y, camZ = cam.z;
+                var camera = mc.gameRenderer.getCamera();
+                Vec3d cam = null;
+                try {
+                    cam = camera.getCameraPos(); // ffor 1.21.11
+                } catch (NoSuchMethodError ignored) {
+                    // fallback for weird mapping combos 
+                }
+                if (cam == null) {
+                    var focused = camera.getFocusedEntity();
+                    if (focused != null) {
+                        cam = new Vec3d(focused.getX(), focused.getY(), focused.getZ());
+                    } else if (mc.player != null) {
+                        cam = new Vec3d(mc.player.getX(), mc.player.getY(), mc.player.getZ());
+                    } else {
+                        cam = new Vec3d(0.0, 0.0, 0.0);
+                    }
+                }
+                double camX = cam.x;
+                double camY = cam.y;
+                double camZ = cam.z;
                 double yaw = mc.gameRenderer.getCamera().getYaw();
                 double pitch = mc.gameRenderer.getCamera().getPitch();
 
