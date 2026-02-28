@@ -36,7 +36,7 @@ Releases are available via GitHub Releases or Modrinth.
 
 | Component  |  Value  |
 |------------|---------|
-| Minecraft  | 1.21.10 |
+| Minecraft  | 1.21.11 |
 | Loader     | Fabric  |
 | Mod Version| 1.7.3   |
 | Environment| Client  |
